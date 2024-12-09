@@ -64,9 +64,9 @@ const Chat: React.FC = () => {
                   ol: ({node, ...props}) => <ol className="list-decimal pl-4 mb-2" {...props} />,
                   li: ({node, ...props}) => <li className="mb-1" {...props} />,
                   a: ({node, ...props}) => <a className="text-blue-600 hover:underline" {...props} />,
-                  code: ({node, inline, ...props}) => 
-                    inline ? (
-                      <code className="bg-gray-100 rounded px-1" {...props} />
+                  code: ({node, ...props}) => 
+                    true ? (
+                      <code className="bg-gray-100 rounded px-1 " {...props} />
                     ) : (
                       <code className="block bg-gray-100 rounded p-2 my-2" {...props} />
                     ),

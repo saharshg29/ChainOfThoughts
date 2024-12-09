@@ -48,7 +48,7 @@ export class ChainOfThoughtReasoner {
     });
 
     const reasoning_text = response.choices[0].message.content;
-    return reasoning_text.split('\n').filter((step) => step.trim());
+    return (reasoning_text ?? '').split('\n').filter((step) => step.trim());
   }
 
   private async _solve_with_reasoning_steps(query: string, reasoning_steps: string[]): Promise<string> {
@@ -82,8 +82,8 @@ export class ChainOfThoughtReasoner {
       max_tokens: 1000,
     });
 
-    return response.choices[0].message.content;
-  }
+    return response.choices[0].message.content ?? '';
+}
 
   async solve_query(query: string) {
     const reasoning_steps = await this._generate_reasoning_steps(query);
@@ -105,7 +105,7 @@ export class ChainOfThoughtReasoner {
         max_tokens: 1000,
       });
   
-    solution =  response.choices[0].message.content;
+      solution = response.choices[0].message.content ?? '';
 
     return {
       original_query: query,
