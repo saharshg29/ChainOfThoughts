@@ -26,9 +26,9 @@ const Chat: React.FC = () => {
     <div className="flex flex-col h-[495px] w-full max-w-2xl mx-auto bg-white border rounded-lg overflow-hidden shadow-lg">
       <ScrollArea className="flex-grow p-4">
         {messages.map((message: Message, index: number) => (
-          <div key={index} className={`mb-4 ${message.role === 'user' ? 'text-right' : 'text-left'}`}>
+          <div key={index} className={`mb-3 ${message.role === 'user' ? 'text-right' : 'text-left'}`}>
             {message.reasoningSteps && (
-              <Accordion type="single" collapsible className="w-full mt-2">
+              <Accordion type="single" collapsible className="w-full mt-1">
                 <AccordionItem value="reasoning-steps">
                   <AccordionTrigger>View Reasoning Steps</AccordionTrigger>
                   <AccordionContent>
@@ -51,7 +51,7 @@ const Chat: React.FC = () => {
               </Accordion>
             )}
             <div
-              className={`inline-block p-2 rounded-lg ${
+              className={`inline-block p-2 mt-2 rounded-lg ${
                 message.role === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'
               }`}
             >
