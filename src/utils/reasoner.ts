@@ -9,7 +9,7 @@ export class ChainOfThoughtReasoner {
       throw new Error('REACT_APP_GROQ_API_KEY is not set');
     }
     this.client = new Groq({apiKey, dangerouslyAllowBrowser: true});
-    this.model = 'llama3-8b-8192';
+    this.model = 'llama-3.3-70b-versatile';
   }
 
   private async _generate_reasoning_steps(query: string): Promise<string[]> {
